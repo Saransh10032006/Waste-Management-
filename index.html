@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WasteWatch - Report Waste</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBy5OidsXiLmxPBkrIlm2a35t3MlQQVRpU",
+      authDomain: "waste-management-system-6e0a9.firebaseapp.com",
+      projectId: "waste-management-system-6e0a9",
+      storageBucket: "waste-management-system-6e0a9.firebasestorage.app",
+      messagingSenderId: "278613294072",
+      appId: "1:278613294072:web:8f0a6efd2a16140d96340d",
+      measurementId: "G-3NJW8NYM2B"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+<body>
+  <header class="hero">
+    <div class="overlay">
+      <div class="hero-content">
+        <h1>🧹 WasteWatch</h1>
+        <p class="tagline">Report unattended waste. Help keep your city clean 🌍</p>
+        <a href="#reportForm" class="cta-button">Report Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <h2>Report a Waste Spot</h2>
+      <form id="complaintForm" name="reportForm">
+        <label for="image">📸 Upload Image:</label>
+        <input type="file" id="image" accept="image/*" required />
+
+        <div class="location-wrapper">
+          <label for="location">📍 Location:</label>
+          <div class="location-input-group">
+            <input type="text" id="location" placeholder="Enter location or use current location" required />
+            <button type="button" id="getLocationBtn" title="Use my current location">📍</button>
+          </div>
+        </div>
+
+        <label for="description">📝 Description (Optional):</label>
+        <textarea id="description" rows="4" placeholder="Additional info..."></textarea>
+
+        <button type="submit">🚀 Submit Complaint</button>
+        <div id="statusMessage"></div>
+      </form>
+
+      <div class="map-container">
+        <div id="map"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 WasteWatch | Together for a cleaner tomorrow 🌍</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy5OidsXiLmxPBkrIlm2a35t3MlQQVRpU&callback=initMap" async defer></script>
+</body>
+</html>
